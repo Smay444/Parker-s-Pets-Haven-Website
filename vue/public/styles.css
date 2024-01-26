@@ -1,0 +1,128 @@
+body { 
+    font-family: 'Arial', sans-serif;
+     background: linear-gradient(to right, #3498db, #2c3e50);
+     color: #333;
+     margin: 0;
+     padding: 0;
+     background-image: url('./images/pawws.avif');
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+ }
+
+ #app {
+     flex: 1;
+ }
+
+ .footer {
+    margin-top: auto;
+    padding: 20px;
+    text-align: center;
+    background: transparent;
+    color: black;
+}
+
+ header {
+     text-align: center;
+     background: linear-gradient(to right, #2c3e50, #3498db);
+     color: #fff;
+ }
+
+ header .header-container {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     height: 20vh;
+     width: 100%;
+     overflow: hidden;
+     background: linear-gradient(to right, #e74c3c, #e67e22);
+ }
+
+ header img {     
+     height: 100%;
+     width: calc(100% / 6);
+     object-fit: cover;
+     border-radius: 8px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     transition: transform 0.3s ease-in-out;     
+ }
+
+ header img:hover {
+     transform: scale(1.1);
+ }
+
+ #nav {
+     text-align: center;
+     background: linear-gradient(to right, #e67e22, #d35400);
+     padding: 10px;
+     width: 100vw;
+     
+ }
+
+ #nav a {
+     color: #fff;    
+     text-decoration: none;
+     margin: 0 15px;
+     font-size: 18px;
+     transition: color 0.3s ease;
+     font-family: "Orbitron", sans-serif;
+     font-optical-sizing: auto;
+
+     font-style: normal;
+     
+     
+ }
+
+ #nav a:hover {
+     color: gold;
+     font-size: 22px;
+     font-family: "Orbitron", sans-serif;
+     font-optical-sizing: auto;
+     font-weight: bold; 
+     font-style: normal;
+ }
+
+ 
+ .container {
+     text-align: center;
+     padding: 20px;
+     background-color: rgba(0, 0, 0, 0.1);  
+     
+ }
+/*
+ h1 {
+     color:#333;
+     font-size: 36px;
+     margin-bottom: 20px;
+ }*/
+
+ /*p{
+     font-size: 20px;
+     line-height: 1.8;
+     color: #555;
+ }*/
+
+ /*.button {
+     display: inline-block;
+     padding: 12px 24px;
+     margin-top: 20px;
+     background:linear-gradient(to right, #e74c3c, #c0392b);
+     color: #fff;
+     text-decoration: none;
+     border-radius: 5px;
+     transition: background-color 0.4s ease;
+ }
+
+ .button:hover {
+     background: linear-gradient(to right, #c0392b, #e74c3c);
+ }*/
+
+ .home{
+    color: black;
+ }
+ .adopt{
+    
+ }
