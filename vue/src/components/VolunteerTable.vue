@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div id="admin-portal">Admin Portal</div>
+        <div id="admin-portal">Volunteers/Admins</div>
         <div class="table">
             <table id="volunteers">
                 <thead>
@@ -31,9 +31,9 @@
                         <td>
                             <select id="statusFilter" v-model="filter.status">
                                 <option value>Show All</option>
-                                <option value="pending">pending</option>
-                                <option value="Approved">approved</option>
-                                <option value="Rejected">rejected</option>
+                                <option value="pending">Pending</option>
+                                <option value="Approved">Approved</option>
+                                <option value="Rejected">Rejected</option>
                             </select>
                         </td>
                         <td>
@@ -179,7 +179,7 @@ export default {
 
 <style scoped>
 tr:nth-child(even) {
-    background-color: #c2c2c2;
+    background-color: #e7c79c;
 }
 
 tr:nth-child(odd) {
@@ -232,5 +232,12 @@ table thead {
     text-decoration: underline;
     font-size: 25px;
     color: rgb(0, 66, 37)
+}
+.table{
+    border: 2px black solid;
+}
+
+#users{
+    border: 2px black solid;
 }
 </style>
