@@ -22,20 +22,19 @@ public class JdbcPetsDao implements PetsDao{
 
         Pets newPet = null;
 
-        String sql = "INSERT INTO pets (pet_name, pet_breed, pet_color, pet_age, is_available,\n" +
-                "\t pet_description, pet_weight, pet_zip, pet_city, pet_state, adopted_by)\n" +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,\n" +
-                "\t?,?) RETURNING pet_id";
+        String sql = "INSERT INTO pets (pet_name, pet_breed, pet_color, pet_age, is_available," +
+                " pet_description, pet_weight, pet_zip, pet_city, pet_state, adopted_by, pet_sex)" +
+                " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?) RETURNING pet_id";
 
         try{
             int petId = jdbcTemplate.queryForObject(sql, int.class,
                     pet.getPetName(), pet.getPetBreed(), pet.getPetColor(), pet.getPetAge(),
                     pet.isAvailable(), pet.getPetDescription(), pet.getPetWeight(), pet.getZipCode(),
-                    pet.getPetCity(), pet.getPetState(), pet.getAdoptedBy());
+                    pet.getPetCity(), pet.getPetState(), pet.getAdoptedBy(), pet.getPetSex());
 
             newPet = new  Pets(petId, pet.getPetName(), pet.getPetBreed(), pet.getPetColor(), pet.getPetAge(),
                     pet.isAvailable(), pet.getPetDescription(), pet.getPetWeight(), pet.getZipCode(),
-                    pet.getPetCity(), pet.getPetState(), pet.getAdoptedBy());
+                    pet.getPetCity(), pet.getPetState(), pet.getAdoptedBy(), pet.getPetSex());
 
         }catch (EmptyResultDataAccessException ex) {
             System.out.println("No data found. Please check the input parameters.");
@@ -108,6 +107,7 @@ public class JdbcPetsDao implements PetsDao{
                 "  pet_city = ?,\n" +
                 "  pet_state = ?,\n" +
                 "  adopted_by = ? \n" +
+                "  pet_sex = ? \n" +
                 "WHERE pet_id = ?";
 
         try{
@@ -123,6 +123,7 @@ public class JdbcPetsDao implements PetsDao{
                     updatedPets.getPetCity(),
                     updatedPets.getPetState(),
                     updatedPets.getAdoptedBy(),
+                    updatedPets.getPetSex(),
                     petId);
 
             if(rowsAffected > 0){
@@ -190,6 +191,7 @@ public class JdbcPetsDao implements PetsDao{
         pets.setPetCity(rs.getString("pet_city"));
         pets.setPetState(rs.getString("pet_state"));
         pets.setAdoptedBy(rs.getString("adopted_by"));
+        pets.setPetSex(rs.getString("pet_sex"));
         return pets;
     }
 

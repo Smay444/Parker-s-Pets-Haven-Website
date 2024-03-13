@@ -8,6 +8,7 @@ Adoption Form: - PetCard
     <h3>Breed: {{ pet.petBreed }}</h3>
     <h3>Age: {{ pet.petAge }} Years</h3>
     <h3>Pet Id: {{ pet.petId }}</h3>
+    <h3>Sex: {{ pet.petSex }}</h3>
     <div class="photo-container">
       <button @click="prevPhoto" class="arrow">❮</button>
       <div v-for="photo in photos" :key="photo.photoId" v-show="currentPhoto === photo">

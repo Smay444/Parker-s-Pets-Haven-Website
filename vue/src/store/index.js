@@ -7,25 +7,7 @@ export function createStore(currentToken, currentUser) {
       token: currentToken || '',
       user: currentUser || {},
       adopted: [],
-      pets: [
-        {
-          id: 1,
-          name: "YiaYia",
-          breed: "Alpaca",
-          color: "White/Beige",
-          age: "8",
-          isAvailable: false,
-          description: "A spirited and spunky alpaca rescued from a breeder",
-          weight: "106",
-          zip: 45371,
-          city: "Tipp City",
-          state: "Ohio",
-          img: "src/images/yiayia.jpg",
-          gallery: ""
-        },
-
-      ],
-
+      pets: [],
       volunteers: [],
       photo: [],
       users: []
