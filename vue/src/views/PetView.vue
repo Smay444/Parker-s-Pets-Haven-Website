@@ -41,6 +41,7 @@ export default {
         breed: "",
         color: "",
         age: "",
+        sex: "",
       },
       showPetList: false,
     };

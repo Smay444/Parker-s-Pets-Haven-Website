@@ -14,20 +14,42 @@ public class Pets {
     private String petCity;
     private String petState;
     private String adoptedBy;
+    private String petSex;
 
-    public Pets(int petId, String petName, String petBreed, String petColor, int petAge, boolean isAvailable, String petDescription, int petWeight, int zipCode, String petCity, String petState, String adoptedBy) {
 
+
+    public Pets(int petId, String petName, String petBreed, String petColor, int petAge, boolean available,
+                String petDescription, int petWeight, int zipCode, String petCity, String petState,
+                String adoptedBy, String petSex) {
+        this.petId = petId;
         this.petName = petName;
         this.petBreed = petBreed;
         this.petColor = petColor;
         this.petAge = petAge;
-        this.available = isAvailable;
+        this.available = available;
         this.petDescription = petDescription;
         this.petWeight = petWeight;
         this.zipCode = zipCode;
         this.petCity = petCity;
         this.petState = petState;
         this.adoptedBy = adoptedBy;
+        this.petSex = petSex;
+    }
+
+//    public Pets(int petId, String petName, String petBreed, String petColor, int petAge,
+//                boolean available, String petDescription, int petWeight, int zipCode, String petCity,
+//                String petState, String adoptedBy) {
+//    }
+    public Pets(String petName, String petBreed, String petColor, int petAge, boolean available,
+                String petDescription, int petWeight, int zipCode, String petCity, String petState, String petSex) {
+    }
+
+    public String getPetSex() {
+        return petSex;
+    }
+
+    public void setPetSex(String petSex) {
+        this.petSex = petSex;
     }
 
     public String getAdoptedBy() {
@@ -42,8 +64,7 @@ public class Pets {
         
     }
 
-    public Pets(String petName, String petBreed, String petColor, int petAge, boolean available, String petDescription, int petWeight, int zipCode, String petCity, String petState) {
-    }
+
 
     public int getPetId() {
         return petId;

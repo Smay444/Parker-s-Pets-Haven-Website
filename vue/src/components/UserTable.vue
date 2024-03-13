@@ -109,7 +109,7 @@ export default {
 
 <style scoped>
 tr:nth-child(even) {
-    background-color: #c2c2c2;
+    background-color: #e7c79c;
 }
 
 tr:nth-child(odd) {
@@ -136,8 +136,9 @@ tr:nth-child(odd) {
 .table {
     overflow-y: scroll;
     max-height: 300px;
-
+    border: 2px black solid;
 }
+
 
 table {
     border-collapse: collapse;

@@ -1,34 +1,45 @@
 Adoption Form: - PetCard
 
 <template>
-  <div class="card">
+  <div class="flip-card">
 
-    <h1 class="pet-name">{{ pet.petName }}</h1>
-    <h3 v-if="pet.available === false">Adopted By: {{ pet.adoptedBy }}</h3>
-    <h3>Breed: {{ pet.petBreed }}</h3>
-    <h3>Age: {{ pet.petAge }} Years</h3>
-    <h3>Pet Id: {{ pet.petId }}</h3>
-    <div class="photo-container">
-      <button @click="prevPhoto" class="arrow">❮</button>
-      <div v-for="photo in photos" :key="photo.photoId" v-show="currentPhoto === photo">
-        <img class="photo" :src="photo.photoUrl" alt="pet photo">
+    <div class="flip-card-inner">
+
+      <div class="flip-card-front">
+        <h1 class="pet-name">{{ pet.petName }}</h1>
+        <h3 v-if="pet.available === false">Adopted By: {{ pet.adoptedBy }}</h3>
+        <h3>Breed: {{ pet.petBreed }}</h3>
+        <h3>Age: {{ pet.petAge }} Years</h3>
+        <h3>Pet Id: {{ pet.petId }}</h3>
+        <h3>Sex: {{ pet.petSex }}</h3>
+        <div class="photo-container">
+          <button @click="prevPhoto" class="arrow">❮</button>
+          <div v-for="photo in photos" :key="photo.photoId" v-show="currentPhoto === photo">
+            <img class="photo" :src="photo.photoUrl" alt="pet photo">
+          </div>
+          <button @click="nextPhoto" class="arrow">❯</button>
+        </div>
+        <h4>Color: {{ pet.petColor }}</h4>
+        <h4>Weight: {{ pet.petWeight }}lbs</h4>
+        <h4>City: {{ pet.petCity }}</h4>
+        <h4>State/Zip: {{ pet.petState }}, {{ pet.zipCode }}</h4>
       </div>
-      <button @click="nextPhoto" class="arrow">❯</button>
-    </div>
-    <h4>Color: {{ pet.petColor }}</h4>
-    <h4>Weight: {{ pet.petWeight }}lbs</h4>
-    <h4>City: {{ pet.petCity }}</h4>
-    <h4>State/Zip: {{ pet.petState }}, {{ pet.zipCode }}</h4>
 
-    <div class="description">
-      <p>{{ pet.petDescription }}</p>
+      <div class="flip-card-back">
+        <div class="description">
+          <p>{{ pet.petDescription }}</p>
+        </div>
+      </div>
     </div>
 
     <div class="buttons">
-      <button v-show="pet.available === true" class="adopt" v-on:click="adoptPet(pet, pet.petId)">ADOPT ME</button>
+      <button v-show="pet.available === true" class="adopt" v-on:click="adoptPet(pet, pet.petId)">ADOPT ME!</button>
     </div>
 
   </div>
+
+
+
 </template>
 
 <script>
@@ -42,10 +53,10 @@ export default {
       photos: [],
       currentPhoto: null,
       users: [],
-     
+
     }
   },
-  props:{
+  props: {
     pet: Object,
   },
   components: {
@@ -69,18 +80,18 @@ export default {
       this.condition = false;
     },
     adoptPet(pet, petId) {
-      
-        pet.available = false;
-        pet.adoptedBy = this.$store.state.user.name;
-        PetService.updatePetListing(pet, petId).then (
-          (response) => {
-           
-            this.$router.push({name: 'adopted'});
-            this.$store.commit('UPDATE_PETS', false);
-            alert("Thanks for adopting. Come Again!")
-          }
-          
-        )
+
+      pet.available = false;
+      pet.adoptedBy = this.$store.state.user.name;
+      PetService.updatePetListing(pet, petId).then(
+        (response) => {
+
+          this.$router.push({ name: 'adopted' });
+          this.$store.commit('UPDATE_PETS', false);
+          alert("Thanks for adopting. Come Again!")
+        }
+
+      )
     },
 
   },
@@ -100,7 +111,7 @@ export default {
 </script>
 
 <style scoped>
-.card {
+.flip-card {
   border: 5px solid black;
   border-radius: 30px;
   width: 450px;
@@ -111,6 +122,8 @@ export default {
   font-family: Arial;
   box-shadow: 10px 10px 20px 10px rgb(204, 115, 81);
   text-decoration-color: black;
+  perspective: 1000px;
+
 }
 
 .photo-container {
@@ -156,35 +169,38 @@ export default {
 
 button {
 
-     display: inline-block;
-     padding: 12px 24px;
-     margin-top: 20px;
-     background:linear-gradient(to right, #e74c3c, #c0392b);
-     color: rgb(222, 215, 177);
-     text-decoration: none;
-     border-radius: 5px;
-     transition: background-color 0.4s ease;
-     border-radius: 25px;
-     width: 200px;
-     font-size: 18px;
-     font-weight: bold;
+  display: inline-block;
+  padding: 12px 24px;
+  margin-top: 20px;
+  background: linear-gradient(to right, #e74c3c, #c0392b);
+  color: rgb(222, 215, 177);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.4s ease;
+  border-radius: 25px;
+  width: 200px;
+  font-size: 18px;
+  font-weight: bold;
 
 }
 
- p{
-     font-size: 20px;
-     line-height: 1.4;
-     color: black;
-    font-style: italic;
- }
-
-.description{
-  height: 150px;
+p {
+  font-size: 20px;
+  line-height: 1.4;
+  color: black;
+  font-style: italic;
 }
-.pet-name{
+
+.description {
+  height: 120px;
+}
+
+.pet-name {
   font-family: "Orbitron", sans-serif;
   font-optical-sizing: auto;
-  font-weight: bold; /* Replace <weight> with an appropriate value like normal or bold */
+  font-weight: bold;
   font-style: normal;
 }
+
+
 </style>

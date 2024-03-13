@@ -23,7 +23,7 @@
                             <input v-model="filter.phone" id="phoneFilter" type="text">
                         </td>
                         <td>
-                           
+                          
                         </td>
 
                     </tr>
@@ -87,6 +87,7 @@ export default {
                     volunteer.appPhoneNumber.includes(this.filter.phone)
                 )
             }
+   
 
             return filteredVolunteers;
         },
@@ -145,6 +146,7 @@ tr:nth-child(odd){
     max-height: 280px;
     display: flex; 
     justify-content: center;
+    border: 2px solid black;
 }
 
 table {
