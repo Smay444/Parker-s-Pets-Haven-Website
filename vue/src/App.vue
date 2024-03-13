@@ -21,8 +21,8 @@
     </div>
 
     <router-view />
-    <footer class="footer" @mouseover="showSmiley" @mouseout="hideSmiley">
-      <h1>Adopt, don't shop!{{ smiley }}</h1>
+    <footer class="footer" >
+      <h1>Adopt, don't shop!</h1>
       <p>© Parker's Pets Animal Shelter</p>
     </footer>
 
@@ -53,10 +53,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.footer:hover h1::before {
-  content: "😻😁";
 }
 
 .img {
