@@ -21,6 +21,11 @@
       </p>
     </section>
   </div>
+
+
+
+
+
 </template>
 
 <script>
@@ -42,6 +47,9 @@ export default {
 </script>
 
 <style scoped>
+
+
+
 h1 {
   color: rgb(118, 69, 59);
   justify-content: center;
