@@ -53,9 +53,9 @@ export default {
 
 <style>
 .admin-container {
-    display: flex;
+    display: grid;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+  
 
 }
 </style>
